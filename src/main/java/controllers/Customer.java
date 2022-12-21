@@ -51,4 +51,22 @@ public class Customer {
         }
     }
 
+    public static void createNewCustomer() {
+        try {
+            ps = connection.prepareStatement("SELECT * FROM customer");
+            rs = ps.executeQuery();
+
+            // Loop through the result set
+            while (rs.next()) {
+                String id = "id: " + rs.getInt("id");
+                String firstName = "first_name: " + rs.getString("first_name");
+                String lastName = "last_name: " + rs.getString("last_name");
+                String email = "email: " + rs.getString("email");
+                System.out.println(id + ", " + firstName + ", " + lastName + ", " + email);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 }
