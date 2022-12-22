@@ -32,4 +32,22 @@ public class Orders {
             return false;
         }
     }
+
+    public static void getAllOrders() {
+        try {
+            ps = connection.prepareStatement("SELECT * FROM orders");
+            rs = ps.executeQuery();
+
+            // Loop through the result set
+            while (rs.next()) {
+                String id = "sale_id: " + rs.getInt("sale_id");
+                String itemId = "item_id: " + rs.getString("item_id");
+                String qty = "qty_purchased: " + rs.getString("qty_purchased");
+                String itemTotal = "item_total: " + rs.getInt("item_total");
+                System.out.println(id + " " + itemId + " " + itemTotal + " " + qty);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
