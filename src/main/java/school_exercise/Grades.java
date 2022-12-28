@@ -1,4 +1,4 @@
-package school;
+package school_exercise;
 import db.Database;
 
 import java.sql.Connection;
@@ -20,7 +20,7 @@ public class Grades {
                     "CREATE TABLE IF NOT EXISTS grades(" +
                             "  id serial," +
                             "  students id" +
-                            "  grades int,");
+                            "  score int,");
             ps.execute();
         } catch (SQLException e) {
             e.printStackTrace();

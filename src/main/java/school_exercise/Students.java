@@ -35,8 +35,8 @@ public class Students {
         System.out.print("Enter the customer last name: ");
         String lName = scanner.nextLine();
 
-        System.out.print("Enter the email: ");
-        String email = scanner.nextLine();
+        System.out.print("Enter the age: ");
+        String age = scanner.nextLine();
 
         try {
             ps = connection.prepareStatement("INSERT INTO students(first_name, last_name, age) " +
@@ -68,7 +68,7 @@ public class Students {
 
     public static boolean updateStudent() {
         // Prompt the user for info
-        System.out.println("Possible fields to update: first_name, last_name, email");
+        System.out.println("Possible fields to update: first_name, last_name, age");
 
         System.out.print("Enter the field name: ");
         String fieldName = scanner.nextLine();
@@ -76,16 +76,16 @@ public class Students {
         System.out.print("Enter the value for the field: ");
         String fieldValue = scanner.nextLine();
 
-        System.out.print("Enter the customer's id: ");
+        System.out.print("Enter the students's id: ");
         int id = scanner.nextInt();
 
-        if (!fieldName.equals("first_name") || !fieldName.equals("last_name") || !fieldName.equals("email")) {
+        if (!fieldName.equals("first_name") || !fieldName.equals("last_name") || !fieldName.equals("age")) {
             System.out.println("Invalid field name");
-            updateCustomer();
+            updateStudent();
         }
 
         try {
-            ps = connection.prepareStatement("UPDATE customer SET " +
+            ps = connection.prepareStatement("UPDATE students SET " +
                     fieldName + " = '" + fieldValue + "' " + "WHERE id = " + id);
             ps.execute();
             return true;
@@ -93,8 +93,22 @@ public class Students {
             e.printStackTrace();
             return false;
         }
+    }
+    public static void getAllStudents() {
+        try {
+            ps = connection.prepareStatement("SELECT * FROM students");
+            rs = ps.executeQuery();
 
-
-
-
+            // Loop through the result set
+            while (rs.next()) {
+                String id = "id: " + rs.getInt("id");
+                String firstName = "first_name: " + rs.getString("first_name");
+                String lastName = "last_name: " + rs.getString("last_name");
+                String age = "age: " + rs.getInt("age");
+                System.out.println(id + ", " + firstName + ", " + lastName + ", " + age);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
