@@ -29,7 +29,7 @@ public class Students {
 
     public static boolean createNewStudent() {
         // Add prompts to tell the user what data they need to enter next
-        System.out.print("Enter the customer first name: ");
+        System.out.print("Enter the. customer first name: ");
         String fName = scanner.nextLine();
 
         System.out.print("Enter the customer last name: ");
