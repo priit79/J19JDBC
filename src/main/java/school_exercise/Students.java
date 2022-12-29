@@ -1,4 +1,5 @@
-package students;
+package school_exercise;
+
 import db.Database;
 
 import java.sql.Connection;
@@ -27,12 +28,12 @@ public class Students {
         }
     }
 
-    public static boolean createNewStudent() {
+/*    public static boolean createNewStudent() {
         // Add prompts to tell the user what data they need to enter next
-        System.out.print("Enter the. customer first name: ");
+        System.out.print("Enter the student first name: ");
         String fName = scanner.nextLine();
 
-        System.out.print("Enter the customer last name: ");
+        System.out.print("Enter the student last name: ");
         String lName = scanner.nextLine();
 
         System.out.print("Enter the age: ");
@@ -110,5 +111,5 @@ public class Students {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
+    } */
 }

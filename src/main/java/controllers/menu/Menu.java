@@ -1,11 +1,14 @@
 package controllers.menu;
 
+
+
 import controllers.Customer;
 import controllers.Item;
 import controllers.Orders;
 import controllers.Sales;
 
 import java.util.Scanner;
+
 
 public class Menu {
     static Scanner scanner = new Scanner(System.in);
@@ -16,7 +19,7 @@ public class Menu {
         System.out.println("2. Customer");
 //        System.out.println("3. Sales");
 //        System.out.println("4. Orders");
-        System.out.println("5. Students");
+
 
         System.out.println();
         System.out.print("Select an option: ");
@@ -35,8 +38,6 @@ public class Menu {
             case 4:
                 orderMenu();
                 break;
-            case 5:
-                studentsMenu();
             default:
                 System.out.println("Invalid option.");
                 mainMenu();
@@ -180,43 +181,4 @@ public class Menu {
                 break;
         }
     }
-    public static void studentsMenu() {
-        System.out.println("Pick a submenu number to continue: ");
-        System.out.println("1. Get All Students");
-        System.out.println("2. Add New Student");
-        System.out.println("3. Update Student");
-        System.out.println("4. Delete Student");
-
-        System.out.println();
-        System.out.print("Select an option or enter 0 to go back to the main menu: ");
-        int option = scanner.nextInt();
-
-        switch (option) {
-            case 0:
-                mainMenu();
-                break;
-            case 1:
-                students.Students.getAllStudents();
-                customerMenu();
-                break;
-            case 2:
-                students.Students.createNewStudent();
-                customerMenu();
-                break;
-            case 3:
-                students.Students.updateStudent();
-                customerMenu();
-                break;
-            case 4:
-                students.Students.deleteStudent();
-                customerMenu();
-                break;
-            default:
-                System.out.println("Invalid option.");
-                customerMenu();
-                break;
-        }
-    }
-
-
 }

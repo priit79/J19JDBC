@@ -3,6 +3,9 @@ import controllers.Item;
 import controllers.Orders;
 import controllers.Sales;
 import controllers.menu.Menu;
+import school_exercise.Students;
+import school_exercise.Grades;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -10,6 +13,8 @@ public class Main {
         Item.createItemsTable();
         Sales.createSalesTable();
         Orders.createOrderTable();
+        Students.createStudentsTable();
+        Grades.createGradesTable();
         // subsequent objects will have their create table
         // methods here
 

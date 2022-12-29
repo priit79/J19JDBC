@@ -1,4 +1,5 @@
 package school_exercise;
+
 import db.Database;
 
 import java.sql.Connection;
@@ -26,6 +27,4 @@ public class Grades {
             e.printStackTrace();
         }
     }
-
-
 }
